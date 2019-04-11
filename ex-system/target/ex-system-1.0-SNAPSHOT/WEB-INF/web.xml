@@ -18,6 +18,7 @@
     <param-name>contextConfigLocation</param-name>
     <param-value>
       classpath:spring-mvc.xml
+      classpath:spring-jdbc.xml
     </param-value>
   </context-param>
 
@@ -66,6 +67,27 @@
   <servlet-mapping>
     <servlet-name>dispatcher</servlet-name>
     <url-pattern>/</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>DruidStatView</servlet-name>
+    <servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>
+    <init-param>
+      <param-name>resetEnable</param-name>
+      <param-value>false</param-value>
+    </init-param>
+    <init-param>
+      <param-name>loginUsername</param-name>
+      <param-value>admin</param-value>
+    </init-param>
+    <init-param>
+      <param-name>loginPassword</param-name>
+      <param-value>dachasi</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DruidStatView</servlet-name>
+    <url-pattern>/druid/*</url-pattern>
   </servlet-mapping>
 
 </web-app>
